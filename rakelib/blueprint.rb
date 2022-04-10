@@ -9,6 +9,10 @@ Daedalus.blueprint do |i|
 
   # First define all flags that all code needs to be build with.
 
+  # Updates/workarounds for building with recent Clang versions.
+  gcc.cxxflags << "-I/usr/include/c++/10 -I/usr/include/x86_64-linux-gnu/c++/10"
+  gcc.cxxflags << "-Wno-return-stack-address -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-implicit-const-int-float-conversion"
+
   # -fno-omit-frame-pointer is needed to get a backtrace on FreeBSD.
   # It is enabled by default on macOS, on the other hand, not on Linux.
   # To use same build flags across platforms, it is added explicitly.

@@ -856,7 +856,7 @@ not support #{name} compiler, please email contact@rubinius.com
       @features["rpath"].configured = false
     when /linux/i
       @system_cflags << "-fPIC"
-      @system_ldflags << "-Wl,--export-dynamic -lrt -lcrypt -ldl -lpthread"
+      @system_ldflags << "-Wl,--copy-dt-needed-entries -lrt -lcrypt -ldl -lpthread"
     else
       # on Unix we need a g++ link, not gcc.
       @system_cflags << "-fPIC"
